@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Splash\SplashBundle\Entity\SplashDetails" table="splash_details">
+    <indexes>
+      <index name="fk_tbl_splash_details_1_idx" columns="country_id"/>
+      <index name="fk_tbl_splash_details_2_idx" columns="brand_id"/>
+      <index name="fk_tbl_splash_details_3_idx" columns="city_id"/>
+      <index name="fk_tbl_splash_details_4_idx" columns="vendor_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="logoUrl" type="string" column="logo_url" length="45" nullable="true"/>
+    <field name="vendorDomain" type="string" column="vendor_domain" length="45" nullable="true"/>
+    <field name="headline" type="string" column="headline" length="45" nullable="true"/>
+    <field name="subline" type="string" column="subline" length="45" nullable="true"/>
+    <field name="requesterName" type="string" column="requester_name" length="45" nullable="true"/>
+    <field name="requesterEmail" type="string" column="requester_email" length="45" nullable="true"/>
+    <field name="customizedBackground" type="string" column="customized_background" length="45" nullable="true"/>
+    <field name="isoPortrait" type="string" column="iso_portrait" length="45" nullable="true"/>
+    <field name="isoLandscape" type="string" column="iso_landscape" length="45" nullable="true"/>
+    <field name="androidPortrait" type="string" column="android_portrait" length="45" nullable="true"/>
+    <field name="androidLandscape" type="string" column="android_landscape" length="45" nullable="true"/>
+    <field name="wp8Portrait" type="string" column="wp8_portrait" length="45" nullable="true"/>
+    <field name="wp8Landscape" type="string" column="wp8_landscape" length="45" nullable="true"/>
+    <field name="idLink" type="string" column="id_link" length="45" nullable="true"/>
+    <field name="adjustlinkUrl" type="string" column="adjustlink_url" length="45" nullable="true"/>
+    <field name="deeplinkUrl" type="string" column="deeplink_url" length="45" nullable="true"/>
+    <field name="isoCode" type="string" column="iso_code" length="45" nullable="true"/>
+    <field name="createdOn" type="datetime" column="created_on" nullable="true"/>
+    <field name="closedOn" type="datetime" column="closed_on" nullable="true"/>
+    <field name="status" type="boolean" column="status" nullable="true"/>
+    <many-to-one field="vendor" target-entity="Vendors">
+      <join-columns>
+        <join-column name="vendor_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="city" target-entity="Cities">
+      <join-columns>
+        <join-column name="city_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="brand" target-entity="Brands">
+      <join-columns>
+        <join-column name="brand_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="country" target-entity="Countries">
+      <join-columns>
+        <join-column name="country_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

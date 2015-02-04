@@ -1,0 +1,7 @@
+splash_splash_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SplashSplashBundle:Default:index }
+
+splash_default:
+    path:     /
+    defaults: { _controller: SplashSplashBundle:Default:index }

@@ -1,0 +1,4 @@
+services:
+#    splash_splash.example:
+#        class: Splash\SplashBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

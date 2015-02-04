@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Splash\SplashBundle\Entity\Vendors" table="vendors">
+    <indexes>
+      <index name="fk_tbl_vendor_1_idx" columns="city_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="code" type="string" column="code" length="45" nullable="true"/>
+    <field name="name" type="string" column="name" length="45" nullable="true"/>
+    <field name="areaId" type="integer" column="area_id" nullable="true"/>
+    <many-to-one field="city" target-entity="Cities">
+      <join-columns>
+        <join-column name="city_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
